@@ -1,0 +1,1 @@
+boot edit {{ $boot->boot }}

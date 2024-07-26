@@ -1,0 +1,1 @@
+{{ $menu->nama_menu }}

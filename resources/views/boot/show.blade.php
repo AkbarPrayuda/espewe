@@ -1,0 +1,1 @@
+boot show {{ $boot->boot }}
