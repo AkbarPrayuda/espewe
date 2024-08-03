@@ -2,37 +2,21 @@
 
 @section('main')
     <div class="container">
-        <div class="row pt-3">
-            <div class="col">
-                <header class="">
-                    <h1>Boot {{ Auth::user()->nama }}</h1>
-                </header>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col">
-                <h4>Buat boot baru</h4>
-                <form action="{{ route('boot.store') }}" method="post" class="py-3">
-                    @method('POST')
-                    @csrf
-                    <div class="mb-3">
-                        <label for="namaBoot" class="form-label">Nama Boot anda</label>
-                        <input type="text" class="form-control" id="namaBoot" name="boot"
-                            aria-describedby="emailHelp" placeholder="Masukan nama boot anda..">
-                        @error('boot')
-                            <div>
-                                {{ $message }}
-                            </div>
-                        @enderror
+        <h1 class="mt-3">Boot Saya</h1>
+        <div class="row my-3">
+            @forelse ($boots as $b)
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $b->boot }}</h5>
+                            <p class="card-text">Dibuat oleh: {{ $b->user->nama }}</p>
+                            <a href="{{ url('boot') . '/' . $b->id }}" class="btn btn-primary">Detail</a>
+                        </div>
                     </div>
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-                @session('success')
-                    @include('components.alert.success')
-                @endsession
-            </div>
+                </div>
+            @empty
+                <h3 class="text-center py-5 my-5">Anda belum memiliki boot apapun</h3>
+            @endforelse
         </div>
     </div>
 @endsection

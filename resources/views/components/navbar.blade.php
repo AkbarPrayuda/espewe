@@ -21,8 +21,8 @@
                             href="/">Beranda</a>
                         <a class="nav-link {{ Route::is('boot.index') ? 'active' : '' }}" aria-current="page"
                             href="{{ route('boot.index') }}">Boot saya</a>
-                        <a class="nav-link {{ Route::is('boot.index') ? 'active' : '' }}" aria-current="page"
-                            href="{{ route('boot.index') }}">Tambah Boot</a>
+                        <a class="nav-link {{ Route::is('boot.create') ? 'active' : '' }}" aria-current="page"
+                            href="{{ route('boot.create') }}">Tambah Boot</a>
                     @endif
                     @if (Route::is('admin') || Route::is('admin.jurusan') || Route::is('admin.kelas'))
                         <a class="nav-link {{ Route::is('admin') || Route::is('admin.jurusan') || Route::is('admin.kelas') ? 'active' : '' }}"

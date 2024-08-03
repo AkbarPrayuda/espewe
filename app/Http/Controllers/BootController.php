@@ -21,7 +21,7 @@ class BootController extends Controller
      */
     public function index()
     {
-        $boots = $this->bootService->getAllBoot();
+        $boots = $this->bootService->getAllBoot()->where('status', 'accept');
 
         $data = [
             'title' => 'SPW | Boot',
